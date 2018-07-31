@@ -1,0 +1,19 @@
+\begin{tikzpicture}[transform canvas={scale=0.5}, ultra thick]
+  \matrix[row sep=1mm,column sep=5mm, draw=none]{
+   \node [adStart](start){}; &
+   \node [adActiv](capture){\Large System \underline{captures} vital signal}; &
+   \node [adActiv](situation){\Large System identifies \underline{situation}}; &
+   \node [adActiv](qosgoal){\Large Compute new \underline{QoS goal}}; & 
+   \node [adDecis](decision)[label=below:Was there any QoS goal change?, text width=0.8cm]{}; &
+   \node [adActiv](reconfiguration){\Large System \underline{reconfiguration} to achieve new QoS goal}; &
+   \node [adMerge](merge)[text width=0.8cm]{}; &
+   \node [adStart]{}; \node[circle, minimum width=9mm, text width=0, thick, draw=black](end){}; \\ };
+  \draw [-{Latex[width=3mm]}] (start.east) -- (capture.west);
+  \draw [-{Latex[width=3mm]}] (capture.east) -- (situation.west);
+  \draw [-{Latex[width=3mm]}] (situation.east) -- (qosgoal.west);
+  \draw [-{Latex[width=3mm]}] (qosgoal.east) -- (decision.west);
+  \draw [-{Latex[width=3mm]}] (reconfiguration.east) -- (merge.west);
+  \draw [-{Latex[width=3mm]}] (merge.east) -- (end.west);
+  \draw [-{Latex[width=3mm]}] (decision.east) -- (reconfiguration.west) node[midway, sloped, above] {yes};
+  \draw [-{Latex[width=3mm]}] (decision.north) -- ++(0,1.2) node[midway, sloped, above] {no} -| (merge.north);
+\end{tikzpicture}

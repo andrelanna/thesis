@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classe do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Opções:
+%  - Graduação: bacharelado|engenharia|licenciatura
+%  - Pós-graduação: [qualificacao], mestrado|doutorado, ppca|ppginf
+
+% \documentclass[engenharia]{UnB-CIC}%
+\documentclass[doutorado,ppginf]{UnB-CIC}%
+
+%\usepackage[inline]{showlabels}
+\usepackage{xcolor}
+\usepackage{pdfpages}% incluir PDFs, usado no apêndice
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{colortbl}
+\usepackage{stmaryrd}
+\usepackage[numbers]{natbib}
+\usepackage{babelbib}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{framed}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{dcolumn}
+\usepackage{multirow}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows, arrows.meta, automata, snakes, backgrounds, fit,
+                positioning, shapes, calc, graphs}
+\include{tikzDefActivityDiagram}
+\include{tikzDefFDTMC}
+\include{tikzDefGeneral}
+
+\usepackage{listings}
+\lstset{escapeinside={(*@}{@*)},
+        language=Java,
+        captionpos=b,
+        breakatwhitespace=true,
+        breaklines=true,
+        columns=fullflexible,
+        basicstyle=\small\ttfamily,
+        numbers=left,
+        numberstyle=\tiny,
+        numbersep=5pt,
+        frame=lines,
+        belowcaptionskip=-2em
+        }
+        
+\setlength{\belowcaptionskip}{-10pt}        
+
+\usepackage[font={footnotesize}]{subcaption}
+\newcommand\myshade{100}
+\colorlet{mylinkcolor}{blue}
+\colorlet{mycitecolor}{orange}
+\colorlet{myurlcolor}{blue}
+
+\hypersetup{
+  linkcolor  = mylinkcolor!\myshade!black,
+  citecolor  = mycitecolor!\myshade!black,
+  urlcolor   = myurlcolor!\myshade!black,
+  colorlinks = true,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Informações do Trabalho
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\orientador{\prof \dr Vander Ramos Alves}{CIC/UnB}%
+\coorientador[a]{\prof[a] \dr[a] Genaina Nunes Rodrigues}{CIC/UnB}
+\coordenador{\prof \dr Bruno Luiggi Macchiavello Espinoza}{CIC/UnB}%
+\diamesano{29}{setembro}{2017}%
+
+\membrobanca{\prof \dr Vander Ramos Alves}{CIC/UnB}%
+%\membrobanca{\prof \dr Genaina Nunes Rodrigues}{CIC/UnB}%
+\membrobanca{\prof \dr Rodrigo Bonifácio}{CIC/UnB}%
+\membrobanca{\prof \dr Alexandre Cabral Mota}{CIN/UFPE}%
+\membrobanca{\prof \dr Cecilia Mary Fischer Rubira}{Unicamp}%
+
+\autor{André Luiz Peron Martins}{Lanna}%
+
+
+\titulo{Feature-Family-Based Reliability Analysis of Software Product Lines}%
+
+\palavraschave{Linhas de produtos de software, análise de confiabilidade, verificação de modelos}%
+\keywords{Software product lines, reliability analysis, model checking}%
+
+\newcommand{\unbcic}{\texttt{UnB-CIC}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Texto
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}%
+    \capitulo{1_Introduction}{Introduction}%
+    \capitulo{2_Background}{Background \label{chp:background}}
+    \capitulo{3_Modeling}{Behavioral Modeling and Reliability of Software
+	    Product Lines \label{chp:modeling}}
+    \capitulo{4_Feature_Family_Analysis}{Feature-Family-based Reliability Analysis \label{chp:featureFamilyBasedAnalysis}}
+    \capitulo{5_Evaluation}{Proposal Evaluation \label{chp:evaluation}}
+    \capitulo{6_Conclusion}{Conclusion \label{chp:conclusion}}
+
+    \apendice{a1_resultadosEmpiricos}{Experiment Data \label{chp:experimentData}}
+    \apendice{a2_splGenerator}{SPL Generator Tool \label{chp:splGenerator}}
+%    \bibliographystyle{plainnat}
+
+    %\apendice{Apendice_Fichamento}{Fichamento de Artigo Científico}%
+    %\anexo{Anexo1}{Documentação Original \unbcic\ (parcial)}%
+\end{document}%

@@ -1,0 +1,25 @@
+\begin{tikzpicture}[thick]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HELP LINES
+%\draw[help lines] (0,0) grid +(10,10);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% elements
+\node[shape=rectangle, draw=black, minimum width=2cm](lifeline1) at (0,10){};
+\node[transpNode](t1) at (0,5.5){};
+\node[shape=rectangle, fill=white, minimum width=0.7, minimum height=2cm](timeline) at (0,8){};
+
+\node[shape=rectangle, draw=black, minimum width=2cm](lifeline2) at (3,10){};
+\node[transpNode](t2) at (3,5.5){};
+\node[shape=rectangle, fill=white, minimum width=0.7, minimum height=2cm](timeline2) at (3,8){};
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% edges
+\draw[dashed] (lifeline1) -- (timeline.north);
+\draw[dashed] (timeline.south) -- (t1);
+
+\draw[dashed] (lifeline2) -- (timeline2.north);
+\draw[dashed] (timeline2.south) -- (t2);
+
+\draw[-angle 60, thick] (0,8) -- node[above, draw=none,yshift=-0.9cm]{methodName()} (3,8);
+\draw[-angle 60, thick] (0,8) -- node[below, draw=none,yshift=+0.7cm]{$prob \in [0,1]$} (3,8);
+\end{tikzpicture}
+

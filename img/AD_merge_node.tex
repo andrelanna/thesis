@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%%%%% HELP LINES
+% \draw[help lines] (0,0) grid +(6,1);
+% \draw[help lines] (0,0) grid +(6,-1);
+%%%%%%%%%%%%%%%%%%% NODES
+\node[transpNode](act1) at (0,1){};
+\node[transpNode](actM) at (0,0){};
+\node[transpNode](act2) at (0,-1){};
+\node[adMerge](merge) at (1,0){};
+\node[transpNode](act3) at (2,0){};
+
+\node[circle, dashed](fAct1) at (3, 1){};
+\node[circle, dashed](fActM) at (3, 0){};
+\node[circle, dashed](fAct2) at (3,-1){};
+\node[circle](fMerge) at (4.5,0){};
+\node[circle](fAct3) at (6,0){};
+%%%%%%%%%%%%%%%%%%% EDGES
+\draw[thick, line width=1pt, ->] (act1) -- (merge);
+\draw[thick, line width=1pt, ->] (actM) -- (merge);
+\draw[thick, line width=1pt, ->] (act2) -- (merge);
+\draw[thick, line width=1pt, ->] (merge) -- (act3);
+
+\draw[thick, line width=1pt, dashed] (2.5,1) -- (2.5,-1);
+
+\draw[thick, line width=1pt, ->](fAct1) --node[draw=none, fill=none, midway, yshift=0.2cm]{\scriptsize $1.0$}(fMerge);
+\draw[thick, line width=1pt, ->](fActM) --node[draw=none, fill=none, midway, yshift=0.2cm]{\scriptsize $1.0$}(fMerge);
+\draw[thick, line width=1pt, ->](fAct2) --node[draw=none, fill=none, midway, yshift=0.2cm]{\scriptsize $1.0$}(fMerge);
+\draw[thick, line width=1pt, ->](fMerge) -- node[draw=none, fill=none, midway, yshift=0.2cm]{$1.0$}(fAct3);

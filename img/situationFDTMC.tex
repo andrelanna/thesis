@@ -1,0 +1,24 @@
+\begin{tikzpicture}[x=1.5cm]
+\centering
+%%%%%%%%%%%%%%%%%%%%%%%% help lines
+%\draw[help lines] (0,0) grid +(5,2);
+
+%%%%%%%%%%%%%%%%%%%%%%%% nodes
+\node[initial](initial) at (-0.5,1) {(\textit{init})};
+\node[](s1) at (1,1){};
+\node[](s2) at (2,1){};
+\node[](s3) at (3,1){};
+\node[](s4) at (4,1){};
+\node[success](success) at (5.5,1){(\textit{success})};
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% edges
+\draw[thick, -{latex[width=3mm]}] (initial) -- node[draw=none, rotate=45, yshift=0.6cm, xshift=0.8cm]{\scriptsize rOxygenation} (s1);
+\draw[thick, -{latex[width=3mm]}] (s1) -- node[draw=none, rotate=45, yshift=0.6cm, xshift=0.8cm]{\scriptsize rPulseRate} (s2);
+\draw[thick, -{latex[width=3mm]}] (s2) -- node[draw=none, rotate=45, yshift=0.6cm, xshift=0.8cm]{\scriptsize rTemperature} (s3);
+\draw[thick, -{latex[width=3mm]}] (s3) -- node[draw=none, rotate=45, yshift=0.6cm, xshift=0.8cm]{\scriptsize rPosition} (s4);
+\draw[thick, -{latex[width=3mm]}] (s4) -- node[draw=none, rotate=45, yshift=0.6cm, xshift=0.5cm]{\scriptsize rFall} (success);
+
+\path[-{latex[width=3mm]}] (success) edge [loop right] node [draw=none]{$1.0$}();
+\end{tikzpicture}
+

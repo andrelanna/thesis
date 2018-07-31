@@ -1,0 +1,345 @@
+
+Achieving a high quality, low costs, and a short time to market are the driving
+goals of software product line engineering.  It aims at developing a number of
+software products sharing a common and managed set of
+features~\cite{pohl_software_2010}.  A software product
+line~\cite{clements_software_2002} is created to take advantage of the
+commonalities and variabilities of a specific application domain, by reusing
+artifacts when instantiating individual software products (a.k.a.\
+\textit{variants} or simply \textit{products}). A domain variability is
+expressed in terms of features, which are distinguishable characteristics
+relevant to some stakeholder of the domain~\cite{czarnecki_generative_2000}.
+Nowadays software product line engineering is widely accepted in both
+industry~\cite{spl-hall-of-fame, linden_software_2007} and
+academia~\cite{apel_feature-oriented_2013, clements_software_2002,
+heradio_bibliometric_2016, pohl_software_2010}.
+% The relations among features are typically represented by a Feature Model
+% (FM)~\cite{kang_1990} which describes the common and variable features, the
+% dependencies between variable features~\cite{czarnecki_generative_2000} beyond
+% it is used to define the configurations that can be considered
+% valid~\cite{schobbens_feature_2006}. The set of configurations of a SPL is
+% called Configuration Space (CS) and its size can be exponential on the number
+% of features of the FM. 
+
+Quality assurance of product lines has drawn growing
+attention~\cite{machado_strategies_2014,thum_classification_2014}.
+Particularly, model checking techniques for product lines explore the space of
+all products in a product line by searching for execution states where
+functional~\cite{ classen_formal_2014, classen_featured_2013,
+classen_symbolic_2011} or non-functional~\cite{dubslaff_probabilistic_2015,
+	ghezzi_model-based_2013,kowal_scaling_2015,
+nunes_variability_2012,rodrigues_modeling_2015} properties are
+violated~\cite{clarke_model_1999}.  Nevertheless, employing model checking
+techniques to verify product lines is a complex task, posing a twofold
+challenge~\cite{classen_featured_2013}: (1) the number of variants may grow
+exponentially with the number of features, which gives rise to an
+\textit{exponential blowup}~\cite{classen_model_2010, classen_symbolic_2011,
+bodden_spllift:_2013, apel_feature-oriented_2013}; and (2) model checking is
+inherently prone to the \textit{state-explosion
+problem}~\cite{baier_principles_2008,clarke_model_1999}.  Therefore, model
+checking all products of a product line is often not feasible in
+practice~\cite{thum_classification_2014}.
+
+Dependability is a non-functional software property that should be considered in
+a probabilistic sense and which encompasses attributes such as {\em
+availability} and {\em reliability}~\cite{avizienis_basic_2004}. The authors
+stress the probabilistic nature of dependability when state ``\textit{the
+extent to which a system possesses the attributes of dependability should be
+considered in a probabilistic sense}''~\cite{avizienis_basic_2004}.  From the
+probabilistic perspective, the reliability can be defined as a probabilistic
+existence property~\cite{grunske_specification_2008} whereby the result of
+measuring the probability of reaching some desired states in a stochastic model
+will indicate the probability of a software successfully accomplishes its tasks.
+
+
+%In order to ensure the compliance of quality levels, different techniques have
+%been proposed to evaluate software systems. Model Checking (MC) stands out
+%among such techniques by performing an exhaustive search at models representing
+%software's behavior in order to find states where properties are
+%violated~\cite{clarke_model_1999}. However such models are often too big so its
+%analysis demands too much effort and time from the model checker tool.
+%Reliability is a property that allows us to compute the probability of a
+%software successfully conduct their tasks through a reachability measure of
+%some desirable states in a stochastical
+%model~\cite{grunske_specification_2008}. 
+
+
+In previous work, model checking techniques have been applied to analyze
+probabilistic properties of product lines, in particular,
+reliability~\cite{ghezzi_model-based_2013, rodrigues_modeling_2015,
+nunes_variability_2012}. These approaches attenuate the complexity of analyzing
+probabilistic properties by exploiting, to some extent, reuse in modeling and
+analysis. On the one hand, non-compositional techniques exploit commonalities
+across products resulting into a single model representing the variability and
+the behavior of the product line as a whole (covering the behaviors of all
+products), but it may not scale due to the large state space of models generated
+by this modeling approach~\cite{rodrigues_modeling_2015,
+nunes_variability_2012}.  On the other hand, a compositional alternative is to
+create and analyze isolated models for each feature and then evaluate them
+jointly for each configuration~\cite{ghezzi_model-based_2013}. This approach is
+space-efficient, but faces an exponential blowup by enumerating all valid
+configurations, which leads to time scalability issues. In essence, both
+approaches have limitations in reusing analysis effort in product lines. As a
+result, state-of-the-art verification techniques for product-line reliability
+analysis are enumerative (product-based), which hinders their applicability,
+given the latent exponential blowup of the configuration space.  
+% state-of-the-art reliability analysis techniques for software product lines
+% rely on enumerating products, which make them infeasible in practice, due to
+% their inherent exponential blowup.
+%It is known that creating models which describe the entire behavior of a SPL
+%embedded with SPL's variability information invariably leads to huge software
+%models that require increased effort to be
+%evaluated~\cite{ghezzi_model-based_2013}. An alternative is to create software
+%models for each SPL's feature and evaluate jointly according to each SPL's
+%configuration\cite{ghezzi_model-based_2013}. However such strategy also have
+%scalability limitations: for example, evaluate all products from a SPL in order
+%to know which of them fulfills a specific reliability threshold is not feasible
+%when the number of products is huge. 
+Consequently, unwanted redundant computational effort is wasted on modeling and
+analyzing product line's models~\cite{ghezzi_model-based_2013}.
+
+
+
+%Reduce or eliminate the redundant effort when verifying SPL's models worth to
+%be investigated due the need of scalar model checking approaches able to
+%evaluate SPLs within time and space constraints in case such restrictions needs
+%to be considered by the model checker. For example, Real-time systems are known
+%by having strong time constraints to provide an answer for an event perceived
+%by the system~\cite{shin_real-time_1994}. If such answer is to deploy a new
+%configuration within a specific reliability threshold value, the model checker
+%must be able to verify which SPL's products can fulfill such constraint within
+%the deadline specified for the real-time system. A particular example is the
+%Ambient Assisted Living (AAL) system which monitors changes at individual's
+%health conditions in order to identify emergency conditions and performing
+%appropriate actions~\cite{rodrigues_dependability_2012}. According to the
+%individual's health conditions the AAL must ensure different reliability
+%thresholds are reached. Thus improve the scalability of reliability
+%verification is relevant and must be investigated. The reuse of software models
+%previously computed and evaluated seems to be a promising approach for taming
+%the SPLs evaluation's complexity because it may decrease the verification
+%effort, in special it may extinguish the redundant verification effort.
+
+
+% As our key contribution, we present a novel \textit{feature-family-based}
+% compound strategy to efficiently compute the reliability of all products of
+% both compositional and annotation-based product lines, without enumerating
+% each of these products.  We employ a divide-and-conquer approach in which
+% pre-com\-put\-ed reliabilities of variability points associated to one or more
+% features are represented by a suitable variational data structure and then
+% combined to compute the reliability of the whole product line in a single
+% pass. Each variability point is a behavioral fragment whose guard condition
+% denotes its presence condition by a propositional expression defined in terms
+% of features.  In the first step, in a nutshell, a \textit{feature-based}
+% analysis is applied to build a probabilistic model per variability point and
+% to analyze each of the resulting models using a parametric model checker,
+% returning an expression that describes the reliability of its behavioral
+% fragment. Parameters in a fragment's reliability expression represent the
+% reliabilities of behavioral fragments on which it depends at runtime.  In the
+% second step, we perform a \textit{family-based} step to evaluate each
+% expression in terms of Algebraic Decision Diagram~\cite{Bahar1997} that encode
+% a mapping from possible configurations to their corresponding reliabilities.
+% This way, we incorporate the knowledge about valid feature combinations when
+% computing the reliabilities of each behavioral fragment. Considering the model
+% checking methods classified by \citet{thum_classification_2014} and to the
+% best of our knowledge, this combination of feature-based and family-based
+% analysis to perform a feature-family-based analysis is the first of its kind.
+
+
+
+As the key contribution, it is presented a method to efficiently compute the
+reliability of all products of both compositional and annotation-based product
+lines, without enumerating and analyzing each of these products. The method
+employs a divide-and-conquer strategy in which pre-com\-put\-ed reliabilities of
+individual behavioral model fragments associated to one or more features are
+combined to compute the reliability of the whole product line in a single pass.
+Each variability point is a behavioral fragment whose guard condition denotes
+its presence condition by a propositional expression defined in terms of
+features.  In a nutshell, in the first step, a \emph{feature-based analysis} is
+applied to build a probabilistic model per behavioral fragment and to analyze
+each such model using a parametric model checker, returning expressions that
+describe the reliability of fragments. Parameters in a features's reliability
+expression represent the reliabilities of other fragments which it depends at
+runtime. In the second step, the method performs a \emph{family-based} step to
+evaluate each expression in terms of Algebraic Decision
+Diagrams~\cite{Bahar1997} that are used to encode the knowledge about valid
+feature combinations and the mapping to their corresponding reliabilities. Since
+the method is a combination of feature-based and family-based analyzes, it is
+effectively a \emph{feature-family-based} analysis strategy
+\cite{thum_classification_2014}, being the first of its kind for reliability
+analysis.
+
+%Next, we progressively perform the family-based analysis on such formulae in
+%order to compute all reliability values each feature may assume and encode the
+%results for all valid products using a convenient variational data
+%structure~\cite{walkingshaw_variational_2014}.  Complementarily family-based
+%dimension is responsible for solving the resulting formula from feature-based
+%evaluation in order to compute all reliability values a feature may assume
+%considering the SPL's partial configurations defined in terms of the features
+%which it depends on. %For such evaluation the family-based dimension composes
+%previously computed reliability values of each feature dependency.% represented
+%by a formula parameter. %The Feature-Family-based dimension is the responsible
+%for coordinating how feature-based and family-based dimensions are performed
+%jointly, in such a way to allow the previously computed reliability values can
+%be reused by composition during the reliabilities computation of the feature
+%under analysis. 
+
+
+
+%Our approach differs from prior work~\cite{classen_featured_2013,
+%ghezzi_model-based_2013} in that (1) it captures the runtime feature
+%dependencies from the UML behavioral models, (2) such dependencies are enriched
+%with variability information extracted from the FM, (3) it computes the
+%reliability values each feature may assume by evaluating each stochastic model
+%considering the (partial) variability information and (4) compute the
+%reliability of all SPL's products by explicitly reusing the reuse of each
+%feature's evaluations.
+
+\hyphenation{re-li-abil-i-ty} The evaluation method is implemented in the tool
+\textsc{ReAna} (which stands for \textbf{Re}liability \textbf{Ana}lysis), whose
+source code is publicly available as a free and open-source
+software\footnote{\url{https://github.com/SPLMC/reana-spl/}}.  The tool takes as
+input a set of UML behavioral models annotated with reliability information and
+the feature model of a product line, and it outputs the reliability values for the
+valid configurations (i.e., products) of this product line.  
+%We implemented our approach in a publicly available tool named ReAna (which
+%stands for Reliability Analysis), which receives as input a set of UML
+%behavioral models annotated with probabilistic information and a feature model,
+%and outputs a set of evaluations. 
+To evaluate the time-space complexity, 120 experiments were performed to
+empirically compare the feature-family-based analysis strategy with the
+following state-of-the-art strategies~\cite{thum_classification_2014}:
+\emph{product-based}, \emph{family-based}, \emph{feature-product-based}, and
+\emph{fam\-i\-ly-prod\-uct-based}. All these alternative strategies were
+implemented as variations of \textsc{ReAna} and used to analyze twenty
+variants of each of six publicly available product-line models: a system for
+monitoring an individual's health~\cite{rodrigues_modeling_2015}, control
+systems for mine pumps~\cite{kramer_conic:_1983} and
+lifts~\cite{plath_feature_2001}, an email system~\cite{spl2go}, inter-cloud
+configuration~\cite{ferreira_leite_automating_2015}, and a game~\cite{spl2go}.
+These product lines have been used widely as benchmarks; they have configuration
+spaces of different sizes, ranging from dozens to billions of billions of
+products. 
+%For such experiment the time and space needed to evaluate all products of each
+%SPL were compared considering all the evaluation strategies. 
+
+The experiment consisted of progressively increasing the number of features and
+the size of the behavioral models for each of the product lines, analyzing each
+of the evolved product lines with all analysis strategies.  The results indicate
+that the feature-family-based strategy has the best performance in terms of time
+and space, being the only one that could be scaled to a $2^{20}$-fold increase
+in the size of the configuration space for \textit{reliability} analysis when
+compared to four state-of-the-art strategies for the same property:
+product-based, family-based, feature-product-based, and
+fam\-i\-ly-prod\-uct-based.
+
+
+In summary, the contributions of this work are the following:
+\begin{itemize}
+	\item It introduces a novel feature-family-based strategy for
+		reliability analysis that analyzes each behavioral fragment
+		(associated to one or more features) in isolation and combines
+		the resulting pieces of information to compute the reliability
+		of a given product line
+		(Chapter~\ref{chp:featureFamilyBasedAnalysis}); 
+	\item It provides a novel tool, called \textsc{ReAna}, implementing such
+		feature-family-based method, to carry out the analysis of
+		reliability of a product line from its UML behavioral diagrams
+		and its feature model (Section~\ref{subsec:reana});
+	\item It reports on an empirical study comparing the performance of our
+		feature-family-based strategy to other state-of-the-art analysis
+		strategies, implemented as an extension of our \textsc{ReAna}
+		tool (Section~\ref{subsec:empiricalEvaluation}).   
+\end{itemize}
+
+Supplementary material, including the \textsc{ReAna} tool and its extensions
+(which include all evaluation strategies considered in this work), as well as
+models used in the empirical evaluation and respective experimental results are
+publicly available for replication purposes at
+\url{http://splmc.github.io/scalabilityAnalysis/}. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   SUMMARY OF GOALS 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary of Goals \label{sec:summaryOfGoals}}
+
+The research has the following key goals:
+
+\begin{itemize}
+	\item to present how the behavior of software product lines can be modeled by usual UML behavioral diagrams and evaluated following a divide-and-conquer strategy;
+	\item to provide an evaluation method aimed for the reliability analysis of software product lines; 
+	\item to empirically compare the proposed evaluation method with other state-of-the-art evaluation strategies.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   ORGANIZATION 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Organization \label{sec:organization}}
+
+The text is organized as follows:
+
+\begin{itemize}
+	\item Chapter~\ref{chp:background} reviews some concepts regarding the
+		model checking techniques and highlights its importance on the
+		verification of software properties, reliability in special;
+		then some concepts about software product lines and a suitable
+		probabilistic modeling suitable for representing its
+		probabilistic and variable behavior. Finally, it presents the
+		running example which will be used along the text, followed by
+		the scope refinement of this work;
+	\item Chapter~\ref{chp:modeling} presents in details how the
+		probabilistic and variable behavior of a software product line
+		can be represented by means of UML behavioral diagrams and the
+		manner how such diagrams are interrelated. Next, the
+		notion of reliability of software product lines in the scope of
+		UML behavioral models is presented, followed by the reliability
+		definition of each behavioral element considered in this work.
+		The transformation of UML behavioral diagrams into the fully
+		probabilistic model FDTMC and an informal equivalence notion
+		between such models (UML and FDTMC) are presented in the
+		following. 
+	\item Chapter~\ref{chp:featureFamilyBasedAnalysis} presents the method
+		proposed for the reliability evaluation of software product
+		lines. Initially, the transformation step to create FDTMCs from
+		UML models by applying the transformation rules described in
+		Chapter~\ref{chp:modeling} is presented, followed by the data
+		structure created to jointly represent the behavioral and
+		probabilistic information of the software product line. In the
+		following, it is presented the analysis of the probabilistic
+		models by the \emph{feature-based} step and the manner how the
+		reliability of the whole software product line is computed in a
+		single pass by the \emph{family-based} step. Finally, the tool
+		support that implements the method is presented in the
+		following.
+	\item Chapter~\ref{chp:evaluation} initially presents how the
+		evaluation method was implemented by an open and publicly
+		available tool. Then two evaluation methods are described such
+		the first one is an analytical evaluation of the method in
+		contrast to the related work most similar for the evaluation of
+		probabilistic models of software product lines. The other
+		evaluation is an empirical evaluation that compares the
+		evaluation method hereby presented with other 4
+		state-of-the-art evaluation strategies. 
+	\item Chapter~\ref{chp:conclusion} presents the final remarks, the
+		comparisons with related works and list the topics to be
+		investigated in the future.
+
+\end{itemize}
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+\begin{tikzpicture}[
+	baseline,
+	level distance=20mm,
+        text depth=.1em, 
+        text height=.8em,
+	level 2/.style={sibling distance=5em},
+        level 3/.style={sibling distance=10em}]
+   \node[minimum size=2cm]{rRoot}
+   child[->, thick]{node[minimum size=2cm]{rSituation}
+         child{node[minimum size=2cm]{rOxygenation}
+            child{node(rsqlite)[minimum size=2cm]{rSqlite}}
+            child{node(rmemory)[minimum size=2cm]{rMemory}}}
+         child{node[draw=none]{$\dots$}}
+         child{node[draw=none]{$\dots$}}
+	 child{node[draw=none]{$\dots$}}
+     child{node(rtemperature)[]{$rTemperature$}}}
+      child[->, thick]{node[draw=none]{$\dots$}} 
+      child[->, thick]{node[draw=none]{$\dots$}} 
+      child[->, thick]{node[draw=none]{$\dots$}};
+   \draw[->,thick] (rtemperature) to [bend left=30](rmemory);
+   \draw[->,thick] (rtemperature) to [bend left=45](rsqlite);
+\end{tikzpicture}
+

@@ -1,0 +1,12 @@
+\footnotesize
+\centering
+\begin{tikzpicture}[baseline, level 1/.style={sibling distance=30mm}]
+\node[rectangle, draw=black](BF){Behavioral Fragment}
+  child[open triangle 45-, thick]{node[rectangle, draw=black](AD){Activity\\ Diagram}}
+  child[open triangle 45-,, thick]{node[rectangle, draw=black](SD){Sequence\\ Diagram}}
+  child[open triangle 45-,, thick]{node[rectangle, draw=black](OCF){Optional \\combined fragment}};
+  
+  \draw [-latex, thick](AD) -- node[below, near end, draw=none]{1} (SD);
+  \draw [-diamond](OCF.north) |- +(2.3cm,0.5cm) |- (OCF.east);
+  \draw [diamond-](SD) -- (OCF);
+\end{tikzpicture}

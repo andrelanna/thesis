@@ -1,0 +1,28 @@
+\begin{tikzpicture}[x=1.5cm]
+\centering
+%%%%%%%%%%%%%%%%%%%%%%%% help lines
+%\draw[help lines] (0,0) grid +(6,2);
+
+%%%%%%%%%%%%%%%%%%%%%%%% nodes
+\node[initial](initial) at (0,1) {(\textit{init})};
+\node[](capt) at (1,1){};
+\node[](situ) at (2,1){};
+\node[](qosg) at (3,1){};
+\node[](deci) at (4,1){};
+\node[](reco) at (5,1){};
+\node[](merg) at (6,1){};
+\node[success](success) at (7.5,1){(\textit{success})};
+
+%%%%%%%%%%%%%%%%%%%%%%%% edges
+\draw[thick, -{latex[width=3mm]}] (initial) to node[draw=none, rotate=45, yshift=0.6cm, xshift=0.8cm]{\scriptsize $rCapture$}  (capt);
+\draw[thick, -{latex[width=3mm]}] (capt) -- node[draw=none, rotate=45, yshift=0.6cm, xshift=0.8cm]{\scriptsize $rSituation$} (situ);
+\draw[thick, -{latex[width=3mm]}] (situ) --  node[draw=none, rotate=45, yshift=0.6cm, xshift=0.8cm]{\scriptsize $rQosGoal$}(qosg);
+\draw[thick, -{latex[width=3mm]}, line width=3pt] (qosg) --  node[draw=none, rotate=45, above, xshift=0.3cm]{\scriptsize $0.5$}(deci);
+\draw[thick, -{latex[width=3mm]}] (deci) --  node[draw=none, rotate=45, yshift=0.4cm, xshift=1.2cm]{\scriptsize $rReconfiguration$}(reco);
+\draw[thick, -{latex[width=3mm]}] (reco) --  node[draw=none, rotate=45, yshift=0.4cm, xshift=0.2cm]{\scriptsize $1.0$}(merg);
+\draw[thick, -{latex[width=3mm]}] (merg) --  node[draw=none, rotate=45, yshift=0.4cm, xshift=0.2cm]{\scriptsize $1.0$}(success);
+
+\draw[thick, line width=2pt, dashed, -{latex[width=3mm]}] (qosg) -- +(0,-1cm) -|  node[draw=none, rotate=45, above, near start]{\scriptsize $0.5$} (merg);
+\path[-{latex[width=3mm]}] (success) edge [loop right] node [draw=none]{$1.0$}();
+\end{tikzpicture}
+

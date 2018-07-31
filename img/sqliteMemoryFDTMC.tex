@@ -1,0 +1,15 @@
+\begin{tikzpicture}[x=1.5cm]
+%%%%%%%%%%%%%%%%%%%%%%%% help lines
+%\draw[help lines] (0,0) grid +(6,2);
+
+%%%%%%%%%%%%%%%%%%%%%%%% nodes
+\node[initial](initial) at (0,1) {(\textit{init})};
+\node[](s1) at (1,1){};
+\node[success](success) at (2.2,1){(\textit{success})};
+
+%%%%%%%%%%%%%%%%%%%%%%%% edges
+\draw[thick, -{latex[width=3mm]}] (initial) -- node[draw=none, rotate=45, yshift=0.3cm, xshift=0.8cm]{\scriptsize $0.999$}  (s1);
+\draw[thick, -{latex[width=3mm]}] (s1) -- node[draw=none, rotate=45, yshift=0.3cm, xshift=0.8cm]{\scriptsize $0.999$} (success);
+\path[-{latex[width=3mm]}] (success) edge [loop right] node [draw=none]{$1.0$}();
+\end{tikzpicture}
+

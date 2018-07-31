@@ -1,0 +1,37 @@
+\textbf{Context:} Verification techniques are being applied to ensure that
+software systems achieve desired quality levels and fulfill functional and
+non-functional requirements.  However, applying these techniques to software
+product lines is challenging, given the exponential blowup of the number of
+products. Current product-line verification techniques leverage symbolic
+model checking and variability information to optimize the analysis, but
+still face limitations that make them costly or infeasible. In particular,
+state-of-the-art verification techniques for product-line reliability
+analysis are enumerative which hinders their applicability, given the latent
+exponential blowup of the configuration space. 
+
+\textbf{Objective:} The objectives of this paper are the following: (a) we
+present a method to efficiently compute the reliability of all configurations
+of a compositional or annotation-based software product line from its UML
+behavioral models, (b) we provide a tool that implements the proposed method,
+and (c) we report on an empirical study comparing the performance of
+different reliability analysis strategies for software product lines. 
+
+\textbf{Method:}  We present a novel \textit{feature-family-based} analysis
+strategy to compute the reliability of all products of a (compositional or
+annotation-based) software product line. The \emph{feature-based} step of our
+strategy divides the behavioral models into smaller units that can be
+analyzed more efficiently. The \emph{family-based} step performs the
+reliability computation for all configurations at once by evaluating
+reliability expressions in terms of a suitable variational data structure. 
+
+\textbf{Results:} Our empirical results show that our feature-family-based
+strategy for \textit{reliability} analysis outperforms, in terms of time and
+space, four state-of-the-art strategies (product-based, family-based,
+feature-product-based, and fam\-i\-ly-prod\-uct-based) for the same property.
+It is the only one that could be scaled to a $2^{20}$-fold increase in the size
+of the configuration space. 
+
+\textbf{Conclusion:}  Our feature-family-based strategy leverages both
+feature- and family-based strategies by taming the size of the models to be
+analyzed and by avoiding the products enumeration inherent to some
+state-of-the-art analysis methods.   

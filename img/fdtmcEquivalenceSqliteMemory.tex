@@ -1,0 +1,12 @@
+\begin{tikzpicture}[thick]
+%\draw[help lines, step=1cm] (0,0) grid +(10,15);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FDTMC for SQLite
+\node(init) at (0,7){$(init)$};
+\node(s1) at (2,7){};
+\node(success) at (4,7){$(success)$};
+\node(error) at (4,5){$(error)$};
+\draw[->, ultra thick] (init) -- node[draw=none, above]{0.999}(s1);
+\draw[->, ultra thick] (s1) -- node[draw=none, above]{0.999}(success);
+\draw[->,auto, thin] (init) |- node[draw=none, above]{0.001}(error);
+\draw[->,auto, thin] (s1) |- node[draw=none, above]{0.001}(error);
+\end{tikzpicture}

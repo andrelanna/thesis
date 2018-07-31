@@ -1,0 +1,21 @@
+\begin{tikzpicture}[thick]
+\small
+\centering
+\node[rectangle, draw=none] at (0,6.5) {$\alpha(rTemperature)=$};
+\node(temperature) at (3,6.5) {Temperature};
+\node(sqlite) at (3,4) {SQLite};
+\node(memory1) at (2,2) {Memory};
+\node(memory2) at (4,2) {Memory};
+\node[rectangle, draw=none](rTemperature) at (2,0) {$0.999^5 \times 0.999^2$ \\ $=0.999^7$};
+\node[rectangle, draw=none](invConfig) at (4,0) {$0.0$};
+\node[rectangle, draw=none](absFrag) at (6,0) {$1.0$};
+
+\draw(temperature) -- (sqlite);
+\draw[dashed, bend left](temperature) to (absFrag.north);
+\draw[dashed](sqlite) -- (memory1);
+\draw(sqlite) -- (memory2);
+\draw(memory1) -- (rTemperature);
+\draw[dashed](memory1) -- (invConfig);
+\draw[dashed](memory2) -- (rTemperature);
+\draw(memory2) -- (invConfig);
+\end{tikzpicture}

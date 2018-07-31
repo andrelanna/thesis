@@ -1,0 +1,384 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CONCLUSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+A feature-family-based method and its corresponding tool for
+efficient reliability analysis of product lines were presented. The approach limits the effort
+needed to compute the reliability of a product line by initially employing a
+\emph{feature-based} analysis to divide its behavioral models into smaller
+units, which can be verified more efficiently. For this purpose, the method arranges
+probabilistic models in an RDG, which is a directed acyclic graph with
+variability information. This strategy facilitates reuse of reliability
+computations for redundant behaviors. The \emph{family-based} step comes next
+when it is performed the reliability computation for all configurations at once by
+evaluating reliability expressions in terms of ADDs.  These decision diagrams
+encode presence conditions and the rules from the feature model, so that
+computation is inherently restricted to valid configurations.
+
+%Different approaches have been proposed for taming the effort required for the
+%analysis of non-functional properties of software product lines. Such
+%approaches fit in one of the following evaluation strategies:
+%feature-product-based, family-based and family-product-based.
+
+The empirical evaluation was accomplished by conducting an experiment to compare
+the feature-family-based approach with the following evaluation strategies:
+feature-product-based, family-based, family-product-based, and product-based.
+Overall, the results show the product-based had the worst time and space
+performance among all strategies, as expected. The family- and
+family-product-based strategies yield more complex probabilistic models than the
+other strategies, due to variability encoding in their models. The product,
+family-product and feature-product-based approaches were sensitive to the size
+of the configuration space of the software product line, given their inherent
+enumerative characteristic. Overall, the experiments show that the
+feature-family-based strategy is faster than all other analysis strategies and
+demanded less memory in most cases, being the only one that could be scaled to a
+$2^{20}$-fold increase in the configuration space. Such results suggest that the
+feature-family-based strategy outperformed the alternative strategies due to the
+following: (a) the feature-based step explores a lower number of simpler models
+having fewer variables in comparison to family-based models; and (b) as the
+family-based step leverages ADD to compute reliability values, fewer operations
+are necessary to compute reliability values in comparison to the enumerative
+strategies.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Future Work
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Future Work \label{sec:futureWork}}
+
+
+As future work, it is planned to extend the empirical evaluation to a larger number of
+subject systems.  Furthermore, the present study investigated the sensitivity of
+analysis performance with respect to changes in the size of the configuration
+space of the subject product lines.  Thus, it is also planned to extend the study so
+as to evaluate the performance impact of changes in other characteristics, such
+as the number of decision nodes and the number of messages per behavioral
+fragment.
+
+
+
+% In future work, we plan (a) provide a new version of our analysis tool able to
+% compute reliabilities values using a number representation bigger than current
+% version, (b) to conduct further empirical studies with additional product
+% lines, and (c) to extend our strategy and tool to other non-functional
+% properties.  the scalability of the feature-family-based strategy in terms of
+% the size of configuration pace and the complexity of behavioral models.
+% Furthermore our work can serve as basis for future researches on applying
+% feature-family-based strategy to evaluate other properties.
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RELATED WORKS 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Related works \label{sec:relatedworks}}
+
+
+This section discusses related work to the hereby presented method, and it is highlighted the
+significant differences. For this purpose the classification of
+\citet{thum_classification_2014} is considered. The approach differs from prior work
+\cite{classen_featured_2013, ghezzi_model-based_2013, rodrigues_modeling_2015}
+in that (a) it captures the runtime feature dependencies from the UML behavioral
+models, (b) which are enriched with variability information extracted from the
+feature model, and (c) it leverages ADDs to compute the reliability of all
+products of a product line with fewer operations than an enumeration would
+require.
+
+
+\subsection{Comparison to a Feature-Product-based Strategy}
+ \label{subsec:ghezzi}
+
+The evaluation method proposed by \citet{ghezzi_model-based_2013} is the closest
+to the work and, to the best of our knowledge, it represents the
+state-of-the-art for reliability evaluation of software product lines. The whole
+behavior of a product line is modeled by a set of small sequence diagrams
+arranged in a tree, where each node has an associated expression resulting from
+the analysis performed by a parametric model checker. To compute the reliability
+of a product, the tree is traversed in a bottom-up fashion, when each node's
+expression is solved considering the configuration under analysis.  The
+resulting value for the root node denotes the product's reliability. This method
+reduces time and effort required for evaluation by employing parametric in place
+of classic model checking, but it faces scalability issues as it is inherently
+enumerative (i.e., the decomposition tree is traversed for each product). The
+analysis strategy followed by the method is \emph{Feature-Product-based}, as it
+decomposes the behavioral models into smaller units (feature-based step) and
+later composes the evaluation results of each unit to obtain the reliability of
+a product (product-based step).
+
+
+Despite the resemblances with this method, the approach presents some
+distinguishing characteristics. While \citet{ghezzi_model-based_2013} must
+explore their decomposition tree each time a configuration is evaluated (thus
+employing a product-based analysis as an evaluation step), the approach employs
+a family-based evaluation for each RDG node, such that all reliability values it
+may assume are computed in a single step.  Another difference refers to the
+usage of UML sequence diagram elements for representing behavioral variability.
+\citet{ghezzi_model-based_2013} establish a direct relation from the feature
+model's semantics of optional and alternative features and the semantics of
+optional (\texttt{OPT}) and alternative (\texttt{ALT}) combined fragments,
+respectively.  Although such relation is straightforward, it constrains the
+approach's expressiveness, as only single features can be associated to a
+combined fragment (i.e., the combined fragment's guard condition assumes only
+atomic propositions).  In contrast, the approach represents behavioral
+variability uniformly by the optional combined fragment, with an arbitrary
+presence condition as a guard statement.  This construct is simpler, because it
+does not leverage alternative fragments, but more expressive, as guards can be
+defined by propositional statements.
+
+%Despite the resemblances with this method, our approach presents some
+%distinguishing characteristics. While \citet{ghezzi_model-based_2013} must
+%explore their decomposition tree each time a configuration is evaluated (thus
+%employing a product-based analysis as an evaluation step), our approach employs
+%a family-based evaluation for each RDG node, such that all reliability values
+%it may assume are computed in a single step. Another difference refers to the
+%usage of UML sequence diagram elements for representing behavioral variability.
+%\citet{ghezzi_model-based_2013} establish a direct relation between the feature
+%model's semantics of optional and alternative features and the semantics of
+%optional (\texttt{OPT}) and alternative (\texttt{ALT}) combined fragments,
+%respectively. Although such relation is straightforward, it constrains the
+%approach's expressiveness in two ways. First, since the behavior of an optional
+%feature is defined by an optional combined fragment and each alternative
+%feature has its behavior defined by a lane of an alternative combined fragment,
+%the approach imposes only single features are associated to a combined fragment
+%i.e., the combined fragment's guard condition assumes only atomic propositions.
+%In effect, such association establishes the implementation of each feature is
+%defined in its distinct module which constrains the approach's applicability
+%only to compositional software product lines. Second, such relation between the
+%semantics of feature models and behavioral fragments implies the feature model
+%structure must reflect in behavioral diagrams as an optional combined fragment
+%isolately of other fragments and a group of alternative features is represented
+%by an alternative combined fragment such that the behavior of each alternative
+%feature is represented by a lane of the optional combined fragment. In
+%contrast, our approach represents behavioral variability uniformly by the
+%optional combined fragment, with an arbitrary presence condition as a guard
+%statement. Albeit this construct is simpler (because it does not leverage
+%alternative fragments), it is more expressive as guards can be defined by
+%propositional statements and also it does not impose any constraints regarding
+%the topology of both feature and behavioral models.
+
+Another major difference concerns the underlying data structure for representing
+the dependencies between behavioral fragments.  \citet{ghezzi_model-based_2013}
+use a decomposition tree while the approach uses a directed acyclic graph that
+allows to represent a group of replicated behavioral fragments by a single node.
+This avoids the effort of performing redundant modeling and evaluation of the
+replicated model, which is not possible to accomplish in a tree structure.
+% In addition, the multiplication of the reliability values of each RDG node by
+% the feature model's ADD (the last step of the family-based step of our
+% approach) ensures only (partial) configurations which do not violate any
+% feature model rule have a valid reliability value. The same does not hold for
+% \citet{ghezzi_model-based_2013} approach, as it can compute the reliability
+% value for an invalid configuration given as input.
+
+
+A precise comparison of the tool implementing the method proposed by
+\citeauthor{ghezzi_model-based_2013} and \textsc{ReAna} was not possible, since
+the former is not publicly available.  Nonetheless, the feature-product-based
+variant of \textsc{ReAna}  created for the experiment closely resembles
+\citeauthor{ghezzi_model-based_2013}'s approach, the only exception being the
+parametric model check\-er of choice.  Empirical results
+(Section~\ref{subsec:empiricalEvaluation}) show with statistical significance
+that the feature-family-based approach performs faster and demands less memory
+than \textsc{ReAna}'s feature-product-based variant. For the evaluation time,
+the feature-family strategy outperformed the feature-product-based strategy from
+2 times (for the original seed of EMail system) up to 4 orders of magnitude (for
+the $3^{rd}$ evolution of Intercloud product line). Regarding space, the
+feature-family-based strategy required from $2.6\%$ (original seed of Email
+system) up to $97\%$ ($3^{rd}$ evolution of InterCloud) less memory. Moreover,
+the feature-product-based strategy was not able to analyze the subject system
+with the largest configuration space (Tankwar), whereas the feature-family-based
+strategy succeeded up to Tankwar's $9^{th}$ evolution.
+% Empirical results (Section~\ref{subsec:empiricalEvaluation}) show the
+% feature-family-based approach performs 2 times to 4 orders of magnitude faster
+% than our ReAna's feature-product-based variant (for EMail and Intercloud,
+% respectively), while requiring 2.6\% to 97\% less space (for ). 
+
+\citeauthor{ghezzi_model-based_2013}'s work~\cite{ghezzi_model-based_2013}
+presents a theoretical analysis of time complexity, in which the authors devise
+a formula for computing the time needed to verify a number of properties for a
+product line with their approach.  Their model transformation time is not
+comparable to this work, mainly because \citeauthor{ghezzi_model-based_2013} do not
+handle activity diagrams in their work, and this work does not handle reward models in
+ours.  Also, both approaches use external tools with similar capabilities to
+perform parametric model checking.  In fact,
+\citeauthor{ghezzi_model-based_2013} argue their
+tool~\cite{Filieri_pmctool_2012} is actually faster than PARAM, which is used by
+\textsc{ReAna}.  Nonetheless, both model checkers could be used interchangeably,
+so the parametric model checking time is omitted.
+
+Because of that, it is assumed the output expressions from the model checking phase
+to be correspondingly equal in both approaches.  This way, the difference
+between the strategies is isolated in the way they solve each expression. While
+\citeauthor{ghezzi_model-based_2013} perform a number $k$ of floating-point
+operations for each configuration, the approach performs the same number $k$ of
+ADD operations, but only once.  Since the number of configurations is $O(2^F)$,
+the feature-product-based approach performs $O(k \cdot 2^F)$ computing steps.
+As no lowest number of steps is possible if one is to compute the reliability of
+all possible configurations, the number of computations in the best case is also
+$O(k \cdot 2^F)$.  In contrast, an operation over ADDs in the approach comprises
+$O(2^{2 \cdot F})$ steps in the worst case, but is $O(F^2)$ in the best case
+(see Section~\ref{subsec:analyticalComplexity}).  Thus, the feature-family-based
+approach performs between $O(k \cdot F^2)$ and $O(k \cdot 2^{2 \cdot F})$
+computing steps.
+
+Hence, in the worst case, the upper bound for the method's
+asymptotic complexity is worse than that of
+\citeauthor{ghezzi_model-based_2013}'s, but its best-case complexity is better,
+which is consistent with the empirical findings from the previous chapter.
+
+%Also, our approach represents behavioral variability uniformly by the optional
+%combined fragment, with anarbitrary presence condition as a guard. This
+%construct is simpler, because itdoes not leverage alternative fragments, but
+%more expressive, as\citet{ghezzi_model-based_2013} restrict guards to atomic
+%propositions(i.e., single features).
+
+%Last, our approach uses a graph to model behavioral fragments dependencies.
+%This way, a replicated behavioral fragment is represented by a single node,
+%providing for reuse of its model and evaluation.  In
+%\citet{ghezzi_model-based_2013}'s approach, such reuse is not possible, as
+%dependencies are arranged as a tree.
+
+%In fact the approaches have much resemblances in several aspects, but also have
+%distinguishing characteristics which worth highlighting. Both evaluation
+%methods are interested in evaluating the reliability of software product lines
+%and they initially employ a feature-based analysis at probabilistic models
+%created from UML behavioral models annotated with probabilistic information.
+%However the differences between such approaches concerns to (a) how the
+%behavioral variability is expressed, (b) the data structures used for
+%representing the dependencies between the probabilistic models and (c) how such
+%data structure is explored for performing the reliability evaluation. The
+%authors propose using a single UML sequence diagram to represent the whole
+%behavior of a software product line, where ALT and OPT combined fragments
+%represent the behavioral variability. The use of such fragments refers to
+%feature models' rules for representing alternative and optional features,
+%respectively, such that each operand in an ALT fragment is related to an
+%alternative feature and the behavior described into an OPT fragment is
+%associated to an optional feature. 
+
+%To the best of our knowledge, the evaluation approach proposed by
+%\citet{ghezzi_model-based_2013} represents the state-of-the-art for reliability
+%evaluation of software product lines, by employing a feature-product-based
+%strategy where each feature is evaluated in isolation and its results are
+%composed for evaluating each product of the software product line. Thus, it can
+%be classified as a feature-product-based strategy and it is considered as our
+%baseline for comparison purposes.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% OTHER RELATED WORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Other Related Work}
+
+\citet{rodrigues_modeling_2015} present and compare three family-based
+strategies to analyze probabilistic properties of product lines. Two of them
+leverage PARAM as model checker; the third one relies on FDTMCs representing the
+behavior of a whole product line by encoding its variability, resulting in an
+ADD expressing the reliability values of all configurations. The 
+feature-family-based strategy benefits even more from further breaking down
+probabilistic models. Indeed, the methods by
+\citeauthor{rodrigues_modeling_2015} show a time-space tradeoff, but all of them
+presented scalability issues even for small product lines (around 12 features),
+whereas the approach is able to analyze a product line with 144 features and
+about $10^{18}$ products within reasonable time.
+
+% Our approach to model checking also encodes FDTMCs as parametric DTMCs, but in
+% a different way.  While \citet{rodrigues_modeling_2015} represent product line
+% variability by feature-related parameters, we let variables denote arbitrary
+% probabilities and enforce constraints from the feature model when valuating
+% them.  Also, although we did not directly included their methods in our
+% empirical evaluation, we examined likewise strategies.
+%advantage
+
+% Last, our results corroborate the authors' stated benefits of using FDTMC to
+% reduce verification cost, but indicate our feature-family-based strategy
+% benefits even more from further breaking down of probabilistic models.
+
+Further research has addressed efficient verification of other
+non-func\-tion\-al properties of product lines by exploiting fam\-i\-ly-based
+analysis
+strategies~\cite{siegmund_family-based_2013,kowal_scaling_2015,dubslaff_probabilistic_2015,dubslaff_probabilistic_2014,varshosaz_model_2014,
+classen2012, classen_featured_2013, Dimovski2015}.
+\citet{siegmund_family-based_2013} propose an approach for performance
+evaluation by simulating the behavior of all variants at runtime from the
+variability encoded in compile-time. Such simulator is created from the log of
+method calls traced by features.  \citet{kowal_scaling_2015} create a model
+representing the whole performance variability of a product line from UML
+activity diagrams annotated with performance-related annotations.
+\citet{dubslaff_probabilistic_2015,dubslaff_probabilistic_2014} present an
+approach for modeling dynamic product lines and performing quantitative analysis
+of systems endowed of non-deterministic choices. Given the non-deterministic
+characteristic of the systems evaluated by this approach, the authors consider
+Markov Decision Processes as the suitable model for representing the model
+behavior. Similarly, \citet{varshosaz_model_2014} introduce a mathematical model
+named Markov Decision Process Family for representing the behavior of a product
+line as a whole, as well as a model checking algorithm to verify properties
+expressed in probabilistic computation tree logic. \citet{classen_featured_2013}
+establish the foundations of \emph{Featured Transition Systems} (FTS) to create
+a model endowed with features expressions to represent the states variation of
+the whole software product line. The authors also present a family-based model
+checker~\cite{classen2012} that is able to analyze \emph{Linear Temporal Logic}
+(LTL) properties of the whole  software product line by employing semi-symbolic
+algorithms to verify FTSs. All these pieces of work exploit symbolic computation
+on a model representing the whole variability of a product line as a better
+alternative to product-based strategies. The study supports this conclusion,
+especially if a suitable variational data structure (e.g., ADD) is used for such
+analysis. However, the results indicate that feature-family-based analysis
+further improves performance.
+
+
+
+% \citet{classen_featured_2013} establish the foundations of \emph{Featured
+% Transition Systems} (FTS) to create a model representing the states variation
+% of the whole software product line by explicitly annotating the edges of a
+% transition system with features expressions. The authors also present a
+% family-based version\cite{classen2012} of the SPIN model checker that is able
+% to represent the behavioral variability of the software product line -- by a
+% model represented by the \emph{fPromela} language -- jointly with the feature
+% model represented by the TVL language. Both works aims to reduce the
+% computational effort for verifying LTL properties of the whole software
+% product line  
+
+\citet{Dimovski2015} also present an efficient family-based technique to verify
+LTL properties of a software family.  The authors leverage abstract
+interpretation to reduce the configuration space of an FTS, so that it can be
+verified by off-the-shelf model checkers (i.e., aimed and optimized to analyze
+single systems).  The method employs a divide-and-conquer strategy to reduce
+model size, without changing the configuration space.  Moreover, the analysis
+method also employs off-the-shelf model checkers, but to analyze probabilistic
+properties of software product lines.  Therefore, it is worth investigating the
+extent to which the technique proposed by \citet{Dimovski2015} can be applied to
+the verification of PCTL properties.  If that is the case, we conjecture that
+both strategies could be combined to further reduce verification effort.
+
+
+% \citet{Dimovski2015} also present an efficient family-based technique to
+% verify LTL properties of a software family, but they alleviate the required
+% analysis effort by taming the configuration space's growth and using
+% off-the-shelf model checkers (ie., aimed and optimized to analyze single
+% systems).  % This technique reduces the family configuration space and employs
+% % off-the-shelf model checkers (i.e., aimed and optimized to analyze single %
+% systems).  For such model's variability reduction, the authors propose
+% abstraction operations that preserve the model's properties when applied to
+% \emph{Featured Transition Systems} (FTS)~\cite{classen_featured_2013}.
+% Similarly, our analysis method employs off-the-shelf model checkers to analyze
+% probabilistic properties of software product lines. For the sake of
+% efficiency, our method reduces the size of models to be evaluated by employing
+% a divide-and-conquer strategy but without reducing the configuration space.
+% Therefore, both strategies for reducing the analysis effort are orthogonal and
+% their jointly usage worths to be investigated.
+
+
+
+

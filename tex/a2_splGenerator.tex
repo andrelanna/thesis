@@ -1,0 +1,41 @@
+To increase the number of subject systems and
+inspect how each evaluation strategy behaves with the growth of the
+configuration space, we implemented a product-line generator tool called
+SPL--Generator\footnote{\url{https://github.com/SPLMC/spl-generator/}}, which is
+able to create a software product line from scratch or modify an existing one by
+incrementally adding features and behavior to its models. For the feature model
+generation (i.e., to create a new feature model or change an existing one), the
+tool relies on the SPLAR tool~\cite{mendonca:2009}. The desired characteristics
+of the resulting feature model are obtained by defining accordingly the set of
+parameters provided by SPLAR. Examples of such parameters are the number of
+features to be created, the amount in percentage for each kind of feature
+(mandatory, optional, OR-inclusive and OR-exclusive), and the number of
+cross-tree constraints. As our SPL-Generator tool intends to create product
+lines that resemble real-world product lines, it produces only consistent
+feature-models (i.e., the SPLAR's parameter for creating consistent
+feature-models is always set to \texttt{true}).
+
+To create behavioral models, the SPL-Generator tool considers the UML behavioral
+diagrams and follows the refinement of activity diagrams into sequence diagrams
+presented in Section~\ref{sec:runningExample}. For creating activity  and
+sequence diagrams, the generator tool is also guided by a set of parameters for
+each kind of behavioral diagram.  For an activity diagram, it is possible to
+define how many activities it will comprise, the number of decision nodes, and
+how many sequence diagrams will refine each created activity. For a sequence
+diagram, it is possible to define its size in terms of numbers of behavioral
+fragments, the size of each behavioral fragment in terms of the number of
+messages, the number of lifelines, the number of different reliability values
+(such that each lifeline will  randomly assume only one value) and the range for
+them. Thus, one possibly generated  sequence diagram  would have 5 behavioral
+fragments, each one containing 8 messages between 3 lifelines, whose reliability
+values are within the range $[0.99, 0.999]$. 
+
+Finally, the SPL-Generator tool also provides a parameter to define how the
+feature model and the behavioral models will be related.  The allocation of a
+behavioral fragment (implementing a feature's behavior) can be fully
+\emph{randomized} within the set of created sequence diagrams, or it can be
+\emph{topological}, which means the relations between the behavioral fragments
+mimic the relations between the corresponding features.  In the latter, we
+assume a child feature refines its parent, so its behavioral fragment is nested
+into its parent's behavioral fragment.
+

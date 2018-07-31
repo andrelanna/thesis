@@ -1,0 +1,228 @@
+The following tables present the mean values for analysis time and memory
+consumption obtained in our experiment.
+Values typeset in boldface are the best values (i.e., the 
+lowest) gathered from the experiments.
+Cells containing dashes represent unavailable data, meaning that the corresponding
+analysis violated the time limit of $60$ minutes.
+
+\begin{landscape}
+%\definecolor{Gray}{gray}{0.85}
+\begin{tiny}
+\begin{longtable}{@{}lllllllllllll@{}}
+\endlastfoot
+\caption{Time in milliseconds (fastest strategy in boldface).}\\
+\toprule
+                          &                 & \multicolumn{10}{c}{SPL's
+			  evolutions steps}                \\ 
+                          &                 &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 &    \\
+			  &                 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\ \midrule
+\endfirsthead
+
+			  \multicolumn{13}{r}{\textit{continued from last page}}\\
+\toprule
+                          &                 & \multicolumn{10}{c}{SPL's
+			  evolutions steps}                \\ 
+                          &                 &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 &    \\
+			  &                 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\ \midrule
+\endhead
+
+\multicolumn{13}{r}{\textit{continued in the next page}}
+\endfoot
+
+%\multirow{12}{*}{Email}   & \cellcolor{Gray}\textit{Configuration space's order} &  \cellcolor{Gray}$10^{1}$  & \cellcolor{Gray}$10^{1}$& \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{3}$   & \cellcolor{Gray}$10^{3}$ & \cellcolor{Gray}$10^{3}$ & \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{4}$ \\* 
+%             & Feature-family & \textbf{183.04} &  \textbf{223.78} &  \textbf{233.69} &  \textbf{259.65} & \textbf{267.32} &  \textbf{285.79} &  \textbf{341.65} &  \textbf{348.46} &   \textbf{366.73} &  \textbf{433.30} & \\*
+%  		          & Feature-product & 370.63 &   517.67 &   742.91 &   1108.95 & 1659.31 &   2358.51 &   3829.95 &   6919.98 &   12803.15 & 25110.63 &  \\* 
+% 		          & Family          & 319.72 &  1167.27 & 13944.18 & 154067.34 &      -- &        -- &        -- &        -- &         -- &       -- &  \\* 
+%                          & Family-product  & \cellcolor{yellow}293.26 &   558.77 &  1095.75 &   2850.86 & 9451.57 &  34704.42 & 137866.42 & 562117.02 & 1607837.42 &  -- \\*
+%                          & Product         & 2424.77 & 7387.35 & 14349.32 &  29137.45 & 57575.0 & 114084.61 & 275598.17 &   -- &    -- &  -- \\*
+%                          & \cellcolor{Gray}\textit{Configuration space's order} & \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{5}$   & \cellcolor{Gray}$10^{5}$ & \cellcolor{Gray}$10^{5}$ & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ \\*
+%			 & Feature-family & \textbf{970.69} & \textbf{1613.76} &  \textbf{2833.40} &  \textbf{5425.14} & \textbf{10838.39} &  \textbf{21719.17} & \textbf{44171.89} & \textbf{90015.26} & \textbf{187645.77} & \textbf{667138.0} & -- \\*
+%                          & Feature-product & 50748.90 & 103510.61 & 215932.90 & 456329.22 & 945445.46 & 1966865.48 &  -- &  -- &   -- &  -- & -- \\*
+%                          & Family          &  -- &   -- &   -- &   -- &   -- &    -- &  -- &  -- &   -- &  -- & -- \\*
+%                          & Family-product  &  -- &   -- &   -- &   -- &   -- &    -- &  -- &  -- &   -- &  -- & -- \\*
+%                          & Product         &  -- &   -- &   -- &   -- &   -- &    -- &  -- &  -- &   -- &  -- & -- \\ \midrule
+%\multirow{12}{*}{Minepump}& \cellcolor{Gray}\textit{Configuration space's order} & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{2}$& \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$   & \cellcolor{Gray}$10^{3}$ & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{4}$ &  \\*
+%                          & Feature-family  & \textbf{261.18} &  \textbf{287.24} &  \textbf{298.10} &  \textbf{330.88} &  \textbf{358.81} &  \textbf{408.45} &   \textbf{485.06} &   \textbf{621.01} &   \textbf{877.52} &   \textbf{1375.22} &  \\*
+% 		          & Feature-product & 895.80 & 1226.97 & 1844.15 & 2624.96 & 4204.27 & 8952.61 & 14037.50 & 25989.10 & 51495.22 & 104090.89 &  \\*
+% 		          & Family          &     -- &      -- &      -- &      -- &      -- &      -- &       -- &       -- &       -- &        -- &  \\*
+% 		          & Family-product  &     -- &      -- &      -- &      -- &      -- &      -- &       -- &       -- &       -- &        -- &  \\*
+% 		          & Product         &     -- &      -- &      -- &      -- &      -- &      -- &       -- &       -- &       -- &        -- &  \\*
+%                          & \cellcolor{Gray}\textit{Configuration space's order} & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$   & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{8}$ \\*
+%			  & Feature-family   &   \textbf{2390.78} &   \textbf{4445.44} &   \textbf{8790.54} &   \textbf{17995.17} & \textbf{36593.45} & \textbf{76513.51} & \textbf{168694.38} & \textbf{354887.72} & -- & -- & -- \\*
+% 		          & Feature-product  & 211806.42 & 439411.29 & 905878.46 & 1876640.52 &       -- &       -- &        -- &        -- & -- & -- & -- \\*
+% 		          & Family           &        -- &        -- &        -- &         -- &       -- &       -- &        -- &        -- & -- & -- & -- \\*
+% 		          & Family-product   &        -- &        -- &        -- &         -- &       -- &       -- &        -- &        -- & -- & -- & -- \\*
+% 		          & Product          &        -- &        -- &        -- &         -- &       -- &       -- &        -- &        -- & -- & -- & -- \\\midrule
+%\multirow{12}{*}{BSN}     & \cellcolor{Gray}\textit{Configuration space's order} & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{2}$& \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$   & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{5}$  & \\*
+%                          & Feature-family  &  \textbf{237.14} &   \textbf{253.65} &   \textbf{273.01} &    \textbf{305.48} &    \textbf{321.69} &     \textbf{377.40} &     \textbf{389.41} &   \textbf{462.66} &    \textbf{651.84} &   \textbf{1032.05} & \\*
+%                          & Feature-product &  991.30 &  1487.19 &  2404.18 &   4312.01 &   7875.91 &   14788.91 &   28881.71 & 57887.92 & 117630.81 & 241553.61 & \\*
+%                          & Family          & 1604.07 &       -- &       -- &        -- &        -- &         -- &         -- &       -- &        -- &        -- & \\*
+%                          & Family-product  & 3288.70 & 11543.38 & 46273.48 & 187134.89 & 672512.22 & \cellcolor{yellow} 2109118.92 & -- &   -- &    -- &     -- & \\*
+%                          & Product         & 6696.06 & 20259.05 & 43489.98 &  97280.21 & 241249.72 &  519495.92 & 1217404.53 &       -- &    -- & -- & \\*
+%                          & \cellcolor{Gray}\textit{Configuration space's order} & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{6}$   & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{8}$ & \cellcolor{Gray}$10^{8}$ \\*
+%			  & Feature-family  &  \textbf{1713.19} &    \textbf{3443.81} &     \textbf{7332.75} & \textbf{15090.83} & \textbf{31208.01} & \textbf{83984.25} & \textbf{197660.21} & \textbf{528948.31} & -- & -- & -- \\*
+%                          & Feature-product &  495594.45 & 1022294.56 &  2145986.30 &  -- &   -- &   -- &   -- &   -- & -- & -- & -- \\*
+%                          & Family          &       -- &    -- &     -- &  -- &  -- &  -- &   -- &   -- & -- & -- & -- \\*
+%                          & Family-product  &       -- &    -- &     -- &  -- &  -- &  -- &   -- &   -- & -- & -- & -- \\*
+%                          & Product         &       -- &     -- &  -- &  -- &  -- &   -- &   -- &   -- & -- & -- & -- \\ \midrule
+%\multirow{12}{*}{Lift}    & \cellcolor{Gray}\textit{Configuration space's order}  & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{3}$& \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{4}$   & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$  & \\*%
+%& Feature-family  &  \textbf{140.32} &  \textbf{169.51} &   \textbf{188.56} &   \textbf{199.95} &    \textbf{223.20} &    \textbf{266.20} &     \textbf{339.85} &   \textbf{472.01} &    \textbf{601.46} &   \textbf{1021.76} & \\*
+%                           & Feature-product & 1160.78 & 1786.75 &  1289.76 &  4281.11 &   7739.10 &  14769.15 &   29418.50 & 60785.39 & 127344.46 & 266609.58 & \\*
+%                           & Family          &  358.06 &  625.16 &  2606.86 & 18223.06 &        -- &        -- &         -- &       -- &        -- &        -- & \\*
+%                           & Family-product  & 1413.96 & 3462.52 & 10777.60 & 42156.47 & 167837.42 & 453830.76 & 1870142.24 &       -- &        -- &        -- & \\*
+%                           & Product         &      -- &      -- &       -- &       -- &        -- &        -- &         -- &       -- &        -- &        -- & \\*
+%                          & \cellcolor{Gray}\textit{Configuration space's order}& \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{6}$   & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{7}$  & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{8}$ & \cellcolor{Gray}$10^{8}$ & \cellcolor{Gray}$10^{9}$ \\* 
+%			  & Feature-family  &   \textbf{3114.06} &    \textbf{5728.56} &   \textbf{10895.96} & \textbf{21081.40} &  \textbf{48194.05} & \textbf{100755.69} &  \textbf{215756.37} & -- & -- & -- & -- \\*
+% 		          & Feature-product & 555525.51 & 1136506.33 & 2457317.34 &       -- &        -- &        -- &         -- & -- & -- & -- & -- \\*
+%                          & Family          &        -- &         -- &         -- &       -- &        -- &        -- &         -- & -- & -- & -- & -- \\*
+%                          & Family-product  &        -- &         -- &         -- &       -- &        -- &        -- &         -- & -- & -- & -- & -- \\*
+%                          & Product         &        -- &         -- &         -- &       -- &        -- &        -- &         -- & -- & -- & -- & -- \\ \midrule
+%\multirow{12}{*}{InterCloud} & \cellcolor{Gray}\textit{Configuration space's order}  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$& \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{6}$   & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$  & \cellcolor{Gray}$10^{7}$  & \\*
+%                             & Feature-family  &     \textbf{671.54} &    \textbf{717.7}  &    \textbf{794.95} &    \textbf{880.11} &    \textbf{922.98} &    \textbf{994.65} &   \textbf{1126.91} &   \textbf{1315.89} &      \textbf{1742} &   \textbf{2544.49} & \\* 
+%                             & Feature-product &  407702.34 & 861181.31 &1752682.98 &3394277.78 &        -- &        -- &        -- &        -- &        -- &        -- & \\*
+%                             & Family          &         -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- & \\*
+%                             & Family-product  &         -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- & \\*
+%                             & Product         &         -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- & \\*
+%                            & \cellcolor{Gray}\textit{Configuration space's order}  & \cellcolor{Gray}$10^{8}$  & \cellcolor{Gray}$10^{8}$  & \cellcolor{Gray}$10^{8}$   & \cellcolor{Gray}$10^{8}$ & \cellcolor{Gray}$10^{9}$ & \cellcolor{Gray}$10^{9}$  & \cellcolor{Gray}$10^{9}$ & \cellcolor{Gray}$10^{10}$ & \cellcolor{Gray}$10^{10}$ & \cellcolor{Gray}$10^{10}$ & \cellcolor{Gray}$10^{11}$ \\*
+%			    & Feature-family  &    \textbf{4074.43} &    \textbf{4280.4} &    \textbf{4568.7} &    \textbf{5344.4} &   \textbf{3936.76} &   \textbf{6719.68} &  \textbf{12829.35} &  \textbf{25588.69} &  \textbf{67156.86} &        -- &        -- \\* 
+%                             & Feature-product &         -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- \\* 
+%                             & Family          &         -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- \\* 
+%                             & Family-product  &         -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- \\* 
+%                             & Product         &         -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- &        -- \\\midrule 
+%\multirow{12}{*}{TankWar} & \cellcolor{Gray} \textit{Configuration space's order}  & \cellcolor{Gray}$10^{18}$  & \cellcolor{Gray}$10^{18}$& \cellcolor{Gray}$10^{19}$  & \cellcolor{Gray}$10^{19}$  & \cellcolor{Gray}$10^{19}$  & \cellcolor{Gray}$10^{20}$   & \cellcolor{Gray}$10^{20}$ & \cellcolor{Gray}$10^{20}$ & \cellcolor{Gray}$10^{21}$  & \cellcolor{Gray}$10^{21}$  &  \\*
+%                           & Feature-family &  \textbf{6643.88} &  \textbf{3588.49} &  \textbf{2734.86} &  \textbf{2966.2} &  \textbf{2902.18} &  \textbf{3079.4} &  \textbf{4221.14} &  \textbf{8012.}  & \textbf{17096.88} & \textbf{160259.19} & \\*
+%                           & Feature-product &      -- &       -- &       -- &      -- &       -- &      -- &       -- &      -- &       -- &        -- & \\*
+%                           & Family          &      -- &       -- &       -- &      -- &       -- &      -- &       -- &      -- &       -- &        -- & \\*
+%                           & Family-product  &      -- &       -- &       -- &      -- &       -- &      -- &       -- &      -- &       -- &        -- & \\*
+%                           & Product         &      -- &       -- &       -- &      -- &       -- &      -- &       -- &      -- &       -- &        -- & \\*
+%                          & \cellcolor{Gray} \textit{Configuration space's order}  & \cellcolor{Gray}$10^{21}$  & \cellcolor{Gray}$10^{21}$  & \cellcolor{Gray}$10^{22}$   & \cellcolor{Gray}$10^{22}$ & \cellcolor{Gray}$10^{22}$ & \cellcolor{Gray}$10^{23}$  & \cellcolor{Gray}$10^{23}$ & \cellcolor{Gray}$10^{23}$ & \cellcolor{Gray}$10^{24}$ & \cellcolor{Gray}$10^{24}$ & \cellcolor{Gray}$10^{24}$ \\*
+%                           & Feature-family  &      -- &       -- &       -- &      -- &       -- &      -- &       -- &      -- &       -- &        -- & -- \\*
+%                           & Feature-product &      -- &       -- &       -- &      -- &       -- &      -- &       -- &      -- &       -- &        -- & -- \\*
+%                           & Family          &      -- &       -- &       -- &      -- &       -- &      -- &       -- &      -- &       -- &        -- & -- \\*
+%                           & Family-product  &      -- &       -- &       -- &      -- &       -- &      -- &       -- &      -- &       -- &        -- & -- \\*
+%                           & Product         &      -- &       -- &       -- &      -- &       -- &      -- &       -- &      -- &       -- &        -- & -- \\\bottomrule
+\end{longtable}%
+\label{tab:timeDataScalability}
+\end{tiny}
+\end{landscape}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%\begin{landscape}
+%
+%\definecolor{Gray}{gray}{0.85}
+%\begin{tiny}
+%\begin{longtable}{@{}lllllllllllll@{}}
+%\endlastfoot
+%\caption{Space in megabytes (smallest footprint in boldface).}\\
+%\toprule
+%                          &                 & \multicolumn{10}{c}{SPL's
+%			  evolutions steps}                \\ 
+%                          &                 &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 &    \\
+%			  &                 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\ \midrule
+%\endfirsthead
+%
+%			  \multicolumn{13}{r}{\textit{continued from last page}}\\
+%\toprule
+%                          &                 & \multicolumn{10}{c}{SPL's
+%			  evolutions steps}                \\ 
+%                          &                 &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 &    \\
+%			  &                 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\ \midrule
+%\endhead
+%
+%\multicolumn{13}{r}{\textit{continued in the next page}}
+%\endfoot
+%
+%\multirow{12}{*}{Email} & \cellcolor{Gray}\textit{Configuration space's order}  & \cellcolor{Gray}$10^{1}$  & \cellcolor{Gray}$10^{1}$& \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{3}$   & \cellcolor{Gray}$10^{3}$ & \cellcolor{Gray}$10^{3}$ & \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{4}$  & \\*
+%                         & Feature-family  & \textbf{113.70} & \textbf{113.84} & \textbf{113.93} & \textbf{114.30} & \textbf{114.45}  & \textbf{114.33}  &  \textbf{114.52} &  \textbf{114.91} &  \textbf{115.86} &  \textbf{117.64} &  \\*
+%                         & Feature-product & 117.22 & 144.30 & 186.59 & 269.67 & 475.61  & 738.99  & 1136.73 & 2359.24 & 2839.02 & 2842.46 &  \\*
+% 		         & Family          & 116.97 & 125.48 & 136.57 & 196.99 &      -- &      -- &      -- &      -- &      -- &      -- &  \\*
+%                         & Family-product  & 120.25 & 157.90 & 235.41 & 510.41 & 827.79  & 722.88  & 1037.62 & 1501.80 & 3231.31 &      -- &  \\*
+%                         & Product         & 122.65 & 231.84 & 272.04 & 277.98 & 310.59  & 309.06  &  327.65 &      -- &      -- &      -- &  \\* 
+%                        & \cellcolor{Gray}\textit{Configuration space's order}  &  \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{5}$   & \cellcolor{Gray}$10^{5}$ & \cellcolor{Gray}$10^{5}$ & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ \\*
+%                         & Feature-family  &  \textbf{130.65} &  \textbf{146.25} &  \textbf{174.93} &  \textbf{287.00} &  \textbf{489.00} &  \textbf{839.80} & \textbf{1523.88} & \textbf{3041.86} & \textbf{5807.80} & \textbf{7223.00} & -- \\
+%                         & Feature-product & 2849.01 & 2878.10 & 2927.46 & 3158.43 & 3367.68 & 4181.64 &      -- &      -- &      -- &      -- & -- \\*
+%                         & Family          &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- & -- \\*
+%                         & Family-product  &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- & -- \\*
+%                         & Product         &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- & -- \\\midrule
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			 \multirow{12}{*}{MinePump} & \cellcolor{Gray}\textit{Configuration space's order}  & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{2}$& \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$   & \cellcolor{Gray}$10^{3}$ & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{4}$  & \\*
+%                           & Feature-family  & \textbf{113.51} & \textbf{114.05} & \textbf{114.41} & \textbf{114.34} &  \textbf{114.8} &  \textbf{115.61} &  \textbf{116.47} &  \textbf{118.48} &  \textbf{129.12} &  \textbf{133.96} &  \\*
+%                           & Feature-product & 210.97 & 333.42 & 504.98 & 743.93 & 1319.2 & 2400.89 & 2841.77 & 2844.10 & 2851.49 & 2879.39 &  \\*
+%                           & Family          &     -- &     -- &     -- &     -- &     -- &      -- &      -- &      -- &      -- &      -- &  \\*
+%                           & Family-product  &     -- &     -- &     -- &     -- &     -- &      -- &      -- &      -- &      -- &      -- &  \\*
+%                           & Product         &     -- &     -- &     -- &     -- &     -- &      -- &      -- &      -- &      -- &      -- &  \\*
+%                           & \cellcolor{Gray}\textit{Configuration space's order}  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$   & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{8}$ \\*
+%                           & Feature-family  &  \textbf{162.48} &  \textbf{265.31} &  \textbf{390.03} &  \textbf{705.39} & \textbf{1165.72} & \textbf{2224.17} & \textbf{4011.27} & \textbf{6921.67} &      -- &      -- &      -- \\*
+%                           & Feature-product & 2914.44 & 2971.55 & 3378.84 & 3789.31 &      -- &      -- &      -- &      -- &      -- &      -- &      -- \\*
+%                           & Family          &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- \\*
+%                           & Family-product  &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- \\*
+%                           & Product         &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- \\\midrule
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			   \multirow{12}{*}{BSN} &  \cellcolor{Gray}\textit{Configuration space's order}  & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{2}$& \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$   & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{4}$  & \cellcolor{Gray}$10^{5}$  & \\*
+%			   & Feature-family  & \textbf{114.05} &  \textbf{114.30} &  \textbf{114.52} &  \textbf{114.56} &  \textbf{114.83} &  \textbf{115.37} &  \textbf{115.32} &  \textbf{116.97} &  \textbf{120.09} &  \textbf{134.23} & \\*
+%                          & Feature-product & 339.91 &  490.76 &  737.50 & 1716.41 & 2379.06 & 2837.60 & 2843.36 & 2850.78 & 2874.49 & 2923.93 & \\*
+%                          & Family          & 156.54 &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- & \\*
+%                          & Family-product  & 493.99 &  841.31 & 1171.71 & 1153.13 & 2189.89 & 3263.80 &      -- &      -- &      -- &      -- & \\*
+%                          & Product         & 320.43 &  335.18 &  339.40 &  352.72 &  327.95 &  440.60 &  446.75 &      -- &      -- &      -- & \\*
+%			  &  \cellcolor{Gray}\textit{Configuration space's order}  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{6}$   & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{8}$ & \cellcolor{Gray}$10^{8}$ \\*
+%			  & Feature-family  &  \textbf{148.34} &  \textbf{186.03} &  \textbf{348.58} &  \textbf{588.99} & \textbf{1043.94} & \textbf{2225.13} & \textbf{4640.35} & \textbf{7130.79} &     -- &      -- &      -- \\*
+%                          & Feature-product & 3005.12 & 3234.19 & 3821.39 &      -- &      -- &      -- &      -- &      -- &     -- &      -- &      -- \\*
+%                          & Family          &  156.54 &      -- &      -- &      -- &      -- &      -- &      -- &      -- &     -- &      -- &      -- \\*
+%                          & Family-product  &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &     -- &      -- &      -- \\*
+%                          & Product         &      -- &      -- &      -- &      -- &      -- &      -- &      -- &      -- &     -- &      -- &      -- \\\midrule
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\multirow{12}{*}{Lift} & \textit{Configuration space's order}  & \cellcolor{Gray}$10^{2}$  & \cellcolor{Gray}$10^{3}$& \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{3}$  & \cellcolor{Gray}$10^{4}$   & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{4}$ & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$  & \\*
+%                          & Feature-family  &  \textbf{113.77} &  \textbf{113.85} &  \textbf{114.37} &  \textbf{114.27} &  \textbf{114.56} &  \textbf{115.23} &  \textbf{116.87} &  \textbf{119.88} &  \textbf{120.72} &  \textbf{134.41} &  \\*
+%                          & Feature-product &  292.23 &  507.43 &  757.52 & 1539.24 & 2399.04 & 2838.97 & 2840.51 & 2859.23 & 2907.41 & 2993.05 &  \\*
+%                          & Family          &  \cellcolor{yellow} 116.54  &  122.63 &  136.83 &  177.02 &      -- &      -- & -- & -- & -- & -- &  \\*
+%                          & Family-product  &  272.85 &  506.39 & 1277.44 & 1296.95 & 1551.49 & 2440.83 & 2669.75 &                -- & -- & -- &  \\*
+%                          & Product         &      -- &      -- &      -- &      -- &      -- &      -- &      -- &                -- & -- & -- &  \\*
+%                        & \textit{Configuration space's order}  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{6}$   & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{7}$  & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{8}$ & \cellcolor{Gray}$10^{8}$ & \cellcolor{Gray}$10^{7}$ \\*
+%                          & Feature-family  &  \textbf{203.42} &  \textbf{319.45} &  \textbf{539.66} &  \textbf{826.57} & \textbf{1791.86} & \textbf{3230.47} & \textbf{6324.48} & -- & -- & -- & -- \\*
+%                          & Feature-product & 3199.10 & 3489.45 & 4644.73 &      -- &      -- &      -- &      -- & -- & -- & -- & -- \\*
+%                          & Family          &      -- &      -- &      -- &      -- &      -- &      -- &      -- & -- & -- & -- & -- \\*
+%                          & Family-product  &      -- &      -- &      -- &      -- &      -- &      -- &      -- & -- & -- & -- & -- \\*
+%                          & Product         &      -- &      -- &      -- &      -- &      -- &      -- &      -- & -- & -- & -- & -- \\ \midrule
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               & \cellcolor{Gray} \textit{Configuration space's order}  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$& \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{5}$  & \cellcolor{Gray}$10^{6}$  & \cellcolor{Gray}$10^{6}$   & \cellcolor{Gray}$10^{6}$ & \cellcolor{Gray}$10^{7}$ & \cellcolor{Gray}$10^{7}$  & \cellcolor{Gray}$10^{7}$ \\
+%%
+%			       \multirow{12}{*}{InterCloud}   & Feature-family  &  \textbf{119.44} & \textbf{119.87}  & \textbf{127.68} & \textbf{127.79} & \textbf{136.03} & \textbf{132.63} & \textbf{136.3 }& \textbf{143.96} & \textbf{152.61} & \textbf{175.78} \\*
+%                               & Feature-product & 3071.58 & 3158.59 &3602.16 & \cellcolor{yellow} 4884.81 &     -- &     -- &    -- &     -- &     -- &     -- \\*
+%                               & Family          &      -- &      -- &     -- &     -- &     -- &     -- &    -- &     -- &     -- &     -- \\*
+%                               & Family-product  &      -- &      -- &     -- &     -- &     -- &     -- &    -- &     -- &     -- &     -- \\*
+%                               & Product         &      -- &      -- &     -- &     -- &     -- &     -- &    -- &     -- &     -- &     -- \\*
+%                               & \cellcolor{Gray} \textit{Configuration space's order}  & \cellcolor{Gray}$10^{8}$  & \cellcolor{Gray}$10^{8}$  & \cellcolor{Gray}$10^{8}$   & \cellcolor{Gray}$10^{8}$ & \cellcolor{Gray}$10^{9}$ & \cellcolor{Gray}$10^{9}$  & \cellcolor{Gray}$10^{9}$ & \cellcolor{Gray}$10^{10}$ & \cellcolor{Gray}$10^{10}$ & \cellcolor{Gray}$10^{10}$ & \cellcolor{Gray}$10^{11}$ \\*
+%			       & Feature-family  & \textbf{224.06} & \textbf{223.7 }& \textbf{251.48} & \textbf{275.81} & \textbf{237.67} & \textbf{378.87} & \textbf{635.76} & \textbf{1102.48} & \textbf{2628.21} & -- & -- \\*
+%                               & Feature-product &     -- &    -- &     -- &     -- &     -- &     -- &     -- &      -- &      -- & -- & -- \\*
+%                               & Family          &     -- &    -- &     -- &     -- &     -- &     -- &     -- &      -- &      -- & -- & -- \\*
+%                               & Family-product  &     -- &    -- &     -- &     -- &     -- &     -- &     -- &      -- &      -- & -- & -- \\*
+%                               & Product         &     -- &    -- &     -- &     -- &     -- &     -- &     -- &      -- &      -- & -- & -- \\\midrule
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\multirow{12}{*}{TankWar} & \cellcolor{Gray} \textit{Configuration space's order}  & \cellcolor{Gray}$10^{18}$  & \cellcolor{Gray}$10^{18}$& \cellcolor{Gray}$10^{19}$  & \cellcolor{Gray}$10^{19}$  & \cellcolor{Gray}$10^{19}$  & \cellcolor{Gray}$10^{20}$   & \cellcolor{Gray}$10^{20}$ & \cellcolor{Gray}$10^{20}$ & \cellcolor{Gray}$10^{21}$  & \cellcolor{Gray}$10^{21}$  & \\
+%                         & Feature-family  &  \textbf{286.99} & \textbf{258.64} & \textbf{246.91} & \textbf{256.09} & \textbf{253.42} & \textbf{271.44} & \textbf{295.76} & \textbf{407.85} & \textbf{622.82} & \textbf{4104.61} &    \\*
+%                         & Feature-product &      -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &      -- & -- \\*
+%                         & Family          &      -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &      -- & -- \\*
+%                         & Family-product  &      -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &      -- & -- \\*
+%                         & Product         &      -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &      -- & -- \\*
+%                         & \cellcolor{Gray} \textit{Configuration space's order}  &  \cellcolor{Gray}$10^{21}$  & \cellcolor{Gray}$10^{21}$  & \cellcolor{Gray}$10^{22}$   & \cellcolor{Gray}$10^{22}$ & \cellcolor{Gray}$10^{22}$ & \cellcolor{Gray}$10^{23}$  & \cellcolor{Gray}$10^{23}$ & \cellcolor{Gray}$10^{23}$ & \cellcolor{Gray}$10^{24}$ & \cellcolor{Gray}$10^{24}$ & \cellcolor{Gray}$10^{24}$ \\*
+%                         & Feature-family  &      -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &      -- & -- \\*
+%                         & Feature-product &      -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &      -- & -- \\*
+%                         & Family          &      -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &      -- & -- \\*
+%                         & Family-product  &      -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &      -- & -- \\*
+%                         & Product         &      -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &     -- &      -- & -- \\\bottomrule
+%%%\end{tabular}%
+%%}
+%\label{tab:memoryDataScalability}
+%%\question{Andre}{How should we represent the standard deviations for all cells? The table space is short.}
+%\end{longtable}
+%\end{tiny}
+%\end{landscape}
+

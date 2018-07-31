@@ -1,0 +1,12 @@
+%\begin{tikzpicture}
+% \draw[help lines] (0,0) grid +(3, 1);
+% \draw[help lines] (0,0) grid +(3,-1);
+\node[adStart](start){};
+\node[initial, thick](initial) at (3,0){(\textit{init})};
+\node[thick](regular) at (5,0){};
+\node[error,thick](error) at (5,-2){(\textit{error})};
+\draw[thick, dashed](1,1) -- (1,-2);
+\draw[thick, ->, line width=1pt] (1.5,0) -- (initial.west);
+\draw[thick, ->, line width=1pt] (initial.east) -- node[draw=none, rectangle, above]{$1.0$}(regular.west);
+\draw[thick, ->, line width=1pt] (initial.south) |- node[draw=none, rectangle, auto]{$0.0$}(error.west);
+%\end{tikzpicture}

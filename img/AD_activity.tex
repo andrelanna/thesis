@@ -1,0 +1,22 @@
+%\begin{tikzpicture}[scale=0.6]
+%%%%%%%%%%%%%%%%%%% HELP LINES
+% \draw[help lines] (0,0) grid +(6,1);
+% \draw[help lines] (0,0) grid +(6,-1);
+%%%%%%%%%%%%%%%%%%% NODES
+\node[fill=none, draw=none](transp1) at (-1.5,0){$\dots$};
+\node[adActiv](activity) at (0.5,0) {Activity};
+\node[fill=none, draw=none](transp2) at (2.5,0){$\dots$};
+
+\node[circle, dashed](current) at (4, 1) {};
+\node[circle](next) at (6, 1) {};
+\node[error, circle, dashed](error) at (6,-1) {(\textit{error})};
+
+\node[rectangle, draw=none, fill=gray!50](constraint) at (5,-2.5){$rActivity \in [0,1]$};
+
+\draw[thick, dashed](3,1) -- (3,-1);
+\draw[thick,->, line width=1pt](transp1.east) -- (activity.west);
+\draw[thick,->, line width=1pt](activity.east) -- (transp2.west);
+\draw[thick,->, line width=1pt](current.east) -- node[midway, yshift=0.3cm, fill=none, draw=none]{rActivity} (next.west);
+\draw[thick,->, line width=1pt](current.south) |- node[midway, yshift=-0.3cm, fill=none, draw=none]{1-rActivity}(error.west);
+
+%\end{tikzpicture}

@@ -1,0 +1,30 @@
+\begin{tikzpicture}[
+	baseline,
+	level distance=20mm,
+        text depth=.1em, 
+        text height=.10em,
+	level 2/.style={sibling distance=7em},
+        level 3/.style={sibling distance=10em}]
+   \node[rectangle, minimum height=1.0cm, draw=none]{$\begin{aligned}
+	   \varepsilon(\mathit{rRoot}) =& 0.5 \cdot \mathit{rCapture} \cdot \mathit{rSituation} \cdot \mathit{rQosGoal} \\
+       +& 0.5 \cdot \mathit{rCapture} \cdot \mathit{rSituation} \cdot \mathit{rQosGoal} \cdot \mathit{rReconfiguration}
+       \end{aligned}$}
+   child[->,thick]{node[minimum width=2cm,rectangle, draw=none]{$\varepsilon(\mathit{rSituation})= \dots$}
+            child{node[minimum width=2cm, minimum height= 1.3cm, rectangle, draw=none]{$\begin{aligned}
+       \varepsilon(\mathit{rOxygenation})= & \\ 0.999^7 \cdot  
+                                          \mathit{rSqlite} \cdot \mathit{rMemory}
+            \end{aligned}$}
+            child{node(rsqlite)[minimum width=2cm,rectangle, draw=none]{$\varepsilon(\mathit{rSqlite})=0.999^2$}}
+            child{node(rmemory)[minimum width=2cm,rectangle, draw=none]{$\varepsilon(\mathit{rMemory})=0.999^2$}}}
+         child{node[minimum width=2cm,rectangle, draw=none]{$\dots$}}
+         child{node[minimum width=2cm,rectangle, draw=none]{$\dots$}}
+	 child{node[minimum width=2cm,rectangle, draw=none]{$\dots$}}
+	 child{node(rtemperature)[minimum width=2cm, minimum height=1.3cm, rectangle, draw=none]{$\begin{aligned}& \varepsilon(\mathit{rTemperature})= \\
+      	                                                         & 0.999^7 \cdot \mathit{rSqlite} \cdot \mathit{rMemory} \end{aligned}$}}}
+      child[->, thick]{node[minimum width=2cm,rectangle, draw=none]{$\dots$}} 
+      child[->, thick]{node[minimum width=2cm,rectangle, draw=none]{$\dots$}} 
+      child[->, thick]{node[minimum width=2cm,rectangle, draw=none]{$\dots$}};
+      
+      \draw[->,thick] (rtemperature.south) to [bend left=30](rmemory);
+   \draw[->,thick] (rtemperature.south) to [bend left=45](rsqlite.south);
+\end{tikzpicture}

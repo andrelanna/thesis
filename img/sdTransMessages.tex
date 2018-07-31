@@ -1,0 +1,74 @@
+\begin{tikzpicture}[thick]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HELP LINES
+%\draw[help lines] (0,0) grid +(20,10);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% elements
+\node[shape=rectangle, draw=black, minimum width=2cm](lifeline1) at (0,10){};
+\node[transpNode](t1) at (0,5.5){};
+\node[shape=rectangle, fill=white, minimum width=0.7, minimum height=2cm](timeline) at (0,8){};
+
+\node[shape=rectangle, draw=black, minimum width=2cm](lifeline2) at (3,10){};
+\node[transpNode](t2) at (3,5.5){};
+\node[shape=rectangle, fill=white, minimum width=0.7, minimum height=2cm](timeline2) at (3,8){};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% edges
+\draw[dashed] (lifeline1) -- (timeline.north);
+\draw[dashed] (timeline.south) -- (t1);
+
+\draw[dashed] (lifeline2) -- (timeline2.north);
+\draw[dashed] (timeline2.south) -- (t2);
+
+\draw[-latex', thick] (0,8) -- node[above, draw=none,yshift=-0.9cm]{methodName()} (3,8);
+\draw[-latex', thick] (0,8) -- node[below, draw=none,yshift=+0.7cm]{$prob \in [0,1]$} (3,8);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% elements
+\node[shape=rectangle, draw=black, minimum width=2cm](lifeline1) at (6,10){};
+\node[transpNode](t1) at (6,5.5){};
+\node[shape=rectangle, fill=white, minimum width=0.7, minimum height=2cm](timeline) at (6,8){};
+
+\node[shape=rectangle, draw=black, minimum width=2cm](lifeline2) at (9,10){};
+\node[transpNode](t2) at (9,5.5){};
+\node[shape=rectangle, fill=white, minimum width=0.7, minimum height=2cm](timeline2) at (9,8){};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% edges
+\draw[dashed] (lifeline1) -- (timeline.north);
+\draw[dashed] (timeline.south) -- (t1);
+
+\draw[dashed] (lifeline2) -- (timeline2.north);
+\draw[dashed] (timeline2.south) -- (t2);
+
+\draw[-angle 60, thick] (6,8) -- node[above, draw=none,yshift=-0.9cm]{methodName()} (9,8);
+\draw[-angle 60, thick] (6,8) -- node[below, draw=none,yshift=+0.7cm]{$prob \in [0,1]$} (9,8);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% elements
+\node[shape=rectangle, draw=black, minimum width=2cm](lifeline1) at (12,10){};
+\node[transpNode](t1) at (12,5.5){};
+\node[shape=rectangle, fill=white, minimum width=0.7, minimum height=2cm](timeline) at (12,8){};
+
+\node[shape=rectangle, draw=black, minimum width=2cm](lifeline2) at (15,10){};
+\node[transpNode](t2) at (15,5.5){};
+\node[shape=rectangle, fill=white, minimum width=0.7, minimum height=2cm](timeline2) at (15,8){};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% edges
+\draw[dashed] (lifeline1) -- (timeline.north);
+\draw[dashed] (timeline.south) -- (t1);
+
+\draw[dashed] (lifeline2) -- (timeline2.north);
+\draw[dashed] (timeline2.south) -- (t2);
+
+\draw[angle 60-, dashed, thick] (12,8) -- node[above, draw=none,yshift=-0.9cm]{methodName()} (15,8);
+\draw[angle 60-, dashed, thick] (12,8) -- node[below, draw=none,yshift=+0.7cm]{$prob \in [0,1]$} (15,8);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% elements
+\node[transpNode](t1) at (17,10){};
+\node[transpNode](t2) at (17,5.5){};
+
+\node[circle, dashed](current) at (18,9){};
+\node[circle, dashed](error) at (20,7){(\textit{error})};
+\node[circle](regular) at (20,9){};
+\node[rectangle, draw=none, fill=gray!50](constraint) at (19,5.8){$p\in[0,1]$};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% edges
+\draw[dashed] (t1) -- (t2);
+\draw[->, thick] (current) -- node[rectangle, draw=none, above]{$p$}(regular);
+\draw[->, thick] (current) |- node[rectangle, draw=none, below]{$1-p$}(error);
+\end{tikzpicture}
